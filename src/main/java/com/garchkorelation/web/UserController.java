@@ -16,6 +16,7 @@ import com.garchkorelation.bean.PasswordRecoveryBean;
 import com.garchkorelation.model.User;
 import com.garchkorelation.service.EmailSenderService;
 import com.garchkorelation.service.SecurityService;
+import com.garchkorelation.service.StockService;
 import com.garchkorelation.service.TokenService;
 import com.garchkorelation.service.UserService;
 import com.garchkorelation.validator.UserValidator;
@@ -39,6 +40,9 @@ public class UserController {
 	@Autowired
 	private UserValidator userValidator;
 	
+	@Autowired
+	private StockService stockService;
+	
 	// Registration
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model) {
@@ -58,7 +62,7 @@ public class UserController {
 
 		securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 		
-		emailSenderService.sendVerification();
+//		emailSenderService.sendVerification(); 
 
 		return "redirect:/home";
 	}
@@ -77,6 +81,7 @@ public class UserController {
 
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(Model model) {
+		model.addAttribute("stockList", stockService.getAll());
 		return "home";
 	}
 
