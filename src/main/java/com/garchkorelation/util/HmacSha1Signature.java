@@ -45,4 +45,5 @@ public class HmacSha1Signature {
 	public static String getValueFromUser(User user) {
 		return user.getEmail() + user.getId();
 	}
+	
 }
