@@ -2,6 +2,7 @@ package com.garchkorelation.service;
 
 import java.util.List;
 
+import com.garchkorelation.bean.ChartBean;
 import com.garchkorelation.model.Stock;
 
 public interface StockService {
@@ -13,5 +14,7 @@ public interface StockService {
 	public List<Stock> getAll();
 	
 	public void saveAll();
+	
+	public List<ChartBean> getChart();
 	
 }

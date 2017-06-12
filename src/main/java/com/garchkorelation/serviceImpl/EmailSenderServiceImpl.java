@@ -1,4 +1,4 @@
-package com.garchkorelation.service;
+package com.garchkorelation.serviceImpl;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.garchkorelation.model.User;
+import com.garchkorelation.service.EmailSenderService;
+import com.garchkorelation.service.UserService;
 import com.garchkorelation.util.HmacSha1Signature;
 import com.garchkorelation.util.StaticVar;
 

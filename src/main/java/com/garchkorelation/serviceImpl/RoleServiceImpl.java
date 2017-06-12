@@ -1,10 +1,11 @@
-package com.garchkorelation.service;
+package com.garchkorelation.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.garchkorelation.model.Role;
 import com.garchkorelation.repository.RoleRepository;
+import com.garchkorelation.service.RoleService;
 
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {

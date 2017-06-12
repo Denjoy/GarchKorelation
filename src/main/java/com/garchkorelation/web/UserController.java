@@ -81,7 +81,6 @@ public class UserController {
 
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(Model model) {
-		model.addAttribute("stockList", stockService.getAll());
 		return "home";
 	}
 

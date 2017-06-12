@@ -1,12 +1,15 @@
-package com.garchkorelation.service;
+package com.garchkorelation.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.garchkorelation.bean.ChartBean;
 import com.garchkorelation.model.Stock;
 import com.garchkorelation.repository.StockRepository;
+import com.garchkorelation.service.StockService;
 import com.garchkorelation.util.ReadXMLFile;
 
 @Service("stockService")
@@ -34,6 +37,15 @@ public class StockServiceImpl implements StockService{
 	public void saveAll() {
 		List<Stock> stockList = ReadXMLFile.load();
 		stockList.forEach(stock -> save(stock));
+	}
+
+	@Override
+	public List<ChartBean> getChart() {
+		List<ChartBean> chartList = new ArrayList<ChartBean>();
+		for(Stock stock: getAll()) {
+			chartList.add(new ChartBean(stock.getDate(), stock.getAsk()));
+		}
+		return chartList;
 	}
 	
 }

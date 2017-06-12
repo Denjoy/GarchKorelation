@@ -1,4 +1,4 @@
-package com.garchkorelation.service;
+package com.garchkorelation.serviceImpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+
+import com.garchkorelation.service.SecurityService;
 
 @Service("securityService")
 public class SecurityServiceImpl implements SecurityService {

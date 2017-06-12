@@ -4,9 +4,11 @@
             <a href="tel: +44 207 736 7020"><i class="fa fa-phone"></i> +44 207 736 7020</a>
             <div><i class="fa fa-clock-o"></i> 10am - 6pm</div>
         </div>
+        <!-- 
         <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-6 footer-logo">
             <a href="#"><img src="./resources/img/logo_white.png" /></a>
         </div>
+         -->
         <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-3 footer-menu">
             <div class="footer-menu-wrapper">
                 <div>
