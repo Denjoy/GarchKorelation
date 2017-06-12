@@ -49,18 +49,32 @@
 
 					for (var i = 0; i < jsonData.length; i++) {
 						data.addRow([ jsonData[i].date, jsonData[i].value ]);
-						console.log(jsonData[i].date);
 					}
 
 					var options = {
-						hAxis : {
-							title : 'Time'
+						title : 'Country Populations',
+						legend : {
+							position : 'none'
 						},
+						colors : [ '#e7711c' ],
+						histogram : {
+							lastBucketPercentile : 5
+						},
+						explorer : {
+							actions : [ 'dragToZoom', 'rightClickToReset' ],
+							axis : 'horizontal',
+							keepInBounds : true
+						},
+						hAxis : {
+							title : 'X'
+						},
+						pointSize : 3,
 						vAxis : {
-							title : 'Popularity'
+							title : 'Y'
 						}
 					};
-					var chart = new google.visualization.LineChart(document
+
+					var chart = new google.visualization.AreaChart(document
 							.getElementById('chart'));
 					chart.draw(data, options);
 				},

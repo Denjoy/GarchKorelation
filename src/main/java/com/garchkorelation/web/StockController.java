@@ -17,7 +17,6 @@ public class StockController {
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String openStock(Model model) {
-		model.addAttribute("chartList", stockService.getChart());
 		return "stock";
 	}
 
