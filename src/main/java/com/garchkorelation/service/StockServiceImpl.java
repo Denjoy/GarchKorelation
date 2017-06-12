@@ -35,4 +35,5 @@ public class StockServiceImpl implements StockService{
 		List<Stock> stockList = ReadXMLFile.load();
 		stockList.forEach(stock -> save(stock));
 	}
+	
 }

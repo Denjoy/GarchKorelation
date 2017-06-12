@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.garchkorelation.calc.Correlation;
 import com.garchkorelation.service.StockService;
 
 @RestController
@@ -18,7 +19,8 @@ public class ExtraRest {
 	@RequestMapping(path = { "/test" }, method = RequestMethod.GET)
 	@ResponseStatus (value = HttpStatus.OK)
 	public void test() {
-		stockService.clearAll();
-		stockService.saveAll();
+		System.out.println(Correlation.correlationCoef(stockService.getAll()));
+//		stockService.clearAll();
+//		stockService.saveAll();
 	}
 }

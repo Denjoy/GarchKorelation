@@ -11,6 +11,7 @@ public interface StockService {
 	public void clearAll();
 	
 	public List<Stock> getAll();
-
+	
 	public void saveAll();
+	
 }
