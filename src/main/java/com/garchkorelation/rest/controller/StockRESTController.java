@@ -21,7 +21,7 @@ public class StockRESTController {
 	@Autowired
 	private StockService stockService;
 
-	@RequestMapping(path = "/refreshDB")
+	@RequestMapping(path = "/refreshDB", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void resfreshDB() {
 		stockService.clearAll();
