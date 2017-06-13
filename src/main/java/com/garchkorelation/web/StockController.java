@@ -17,6 +17,7 @@ public class StockController {
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String openStock(Model model) {
+		model.addAttribute("stockList", stockService.getAll());
 		return "stock";
 	}
 

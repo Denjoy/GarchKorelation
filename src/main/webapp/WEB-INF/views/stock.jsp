@@ -48,6 +48,44 @@
 
 	<div id="chart" class="chartClass"></div>
 
+	<div style="background: white;">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Last Price</th>
+					<th>Bid</th>
+					<th>Ask</th>
+					<th>Min day price</th>
+					<th>Max day price</th>
+					<th>Avg day price</th>
+					<th>Total</th>
+					<th>%</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test="${!empty stockList}">
+					<c:forEach items="${stockList}" var="stock">
+						<tr>
+							<td>${stock.date}</td>
+							<td>${stock.lastPrice}</td>
+							<td>${stock.bid}</td>
+							<td>${stock.ask}</td>
+							<td>${stock.minDayPrice}</td>
+							<td>${stock.maxDayPrice}</td>
+							<td>${stock.avgDayPrice}</td>
+							<td>${stock.dayTotal}</td>
+							<td>${stock.percentDay}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+
+			</tbody>
+		</table>
+
+	</div>
+
+
 	<div class="footer"></div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
@@ -114,12 +152,12 @@
 
 	<script type="text/javascript">
 		$(function() {
-			$('#datetimepicker6').datetimepicker( {
-				  format: 'YYYY-MM-DD'
+			$('#datetimepicker6').datetimepicker({
+				format : 'YYYY-MM-DD'
 			});
 			$('#datetimepicker7').datetimepicker({
 				useCurrent : false,
-				 format: 'YYYY-MM-DD'
+				format : 'YYYY-MM-DD'
 			//Important! See issue #1075
 			});
 			$("#datetimepicker6").on("dp.change", function(e) {
