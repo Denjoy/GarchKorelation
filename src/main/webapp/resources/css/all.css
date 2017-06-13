@@ -10,10 +10,10 @@ body {
   font-family: 'Open Sans', sans-serif; }
 
 a:hover {
-  color: orange;
+  color: #020146;
   text-decoration: none; }
   a:hover:hover {
-    color: orange;
+    color: #020146;
     text-decoration: none; }
 
 iframe {
@@ -31,10 +31,10 @@ iframe {
     height: 29px;
     padding-top: 5px; }
     .header-social a {
-      color: orange;
+      color: #020146;
       margin-left: 5px; }
   .header-main {
-    background-color: orange; }
+    background-color: #020146; }
     @media screen and (min-width: 587px) {
       .header-main {
         font-size: 18px; } }
@@ -81,7 +81,7 @@ iframe {
     .footer-main {
       font-size: 18px; } }
   .footer-main a {
-    color: orange; }
+    color: #020146; }
     .footer-main a:hover {
       color: white; }
   .footer-main > div {
@@ -95,7 +95,7 @@ iframe {
         margin-top: 20px;
         justify-content: center; } }
 .footer-contacts {
-  color: orange;
+  color: #020146;
   font-size: 14px;
   flex-direction: column;
   justify-content: center; }
@@ -1133,5 +1133,13 @@ iframe {
 
 .page-idea .view-comments {
   display: none; }
+  
+.mainName{
+	color: #fff;
+	font-size: 35px;
+}
+.homeText{
+	height:70%;
+}
 
 /*# sourceMappingURL=all.css.map */

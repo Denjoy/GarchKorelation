@@ -1,7 +1,11 @@
 @CHARSET "UTF-8";
 
 .chartClass{
-	width:800px;
-	height:200px;
-	margin-left:200px;
+	width:50%;
+	height:50%;
+	margin-left:25%;
+}
+.table{
+	background-color:#01243b;
+	color: #7d7c7e;
 }

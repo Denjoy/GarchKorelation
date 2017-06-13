@@ -8,7 +8,7 @@
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <link rel="icon" type="image/x-icon" href="${contextPath}/resources/img/favicon.ico" />
-<title>Fignya 2</title>
+<title>Stock</title>
 
 <link rel='stylesheet' href='${contextPath}/resources/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='${contextPath}/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css' type='text/css' media='all' />

@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <a href="#">Home</a>
-                    <a href="#">Modiphius.com</a>
+                    <a href="#">GarchProject</a>
                 </div>
                 <div class="footer-menu-wide">
                     <a href="#">Terms and Conditions</a>
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-copy">
-            <a href="#">2017 <i class="fa fa-copyright"></i> Modiphius Entertainment Ltd</a>
+            <a href="#">2017 <i class="fa fa-copyright"></i> GarchProject</a>
         </div>
     </div>
 </div>
