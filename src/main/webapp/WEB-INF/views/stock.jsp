@@ -86,9 +86,6 @@
 
 	</div>
 
-
-
-
 	<div class="footer"></div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
@@ -110,6 +107,8 @@
 
 		if (i !== -1) {
 			u = 'B' + u.substring(i + 1);
+		} else {
+			u="";
 		}
 
 		function drawBasic() {
@@ -123,7 +122,7 @@
 					data.addColumn('string', 'date');
 					data.addColumn('number', 'value');
 
-					for (var i = 0; i < jsonData.length; i++) {
+					for (var i = jsonData.length-1; i >= 0; --i) {
 						data.addRow([ jsonData[i].date, jsonData[i].value ]);
 					}
 
