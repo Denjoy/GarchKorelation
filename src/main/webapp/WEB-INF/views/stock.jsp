@@ -131,11 +131,11 @@
 							keepInBounds : true
 						},
 						hAxis : {
-							title : 'X'
+							title : 'Date'
 						},
 						pointSize : 3,
 						vAxis : {
-							title : 'Y'
+							title : 'Value'
 						}
 					};
 

@@ -10,8 +10,8 @@ import java.util.Locale;
 public class TimeUtil {
 
 	static final long ONE_MINUTE_IN_MILLIS = 60000;
-	public static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	public static DateFormat userDateFormat = new SimpleDateFormat("MMMMM dd, yyyy", Locale.ENGLISH);
+	public static DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+	public static DateFormat userDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
 	public static String getCurrentTime() {
 		Date date = new Date();
