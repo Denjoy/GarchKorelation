@@ -12,6 +12,7 @@
 
 <link rel='stylesheet' href='${contextPath}/resources/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='${contextPath}/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' href='${contextPath}/resources/css/stock.css' type='text/css' media='all' />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
@@ -45,7 +46,7 @@
 	</div>
 
 
-	<div id="chart"></div>
+	<div id="chart" class="chartClass"></div>
 
 	<div class="footer"></div>
 

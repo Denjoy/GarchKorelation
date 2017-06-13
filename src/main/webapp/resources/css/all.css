@@ -3,17 +3,17 @@ body.modiphius-bg {
   background-repeat: no-repeat !important;
   background-position: 50% 50% !important;
   background-size: 100% !important;
-  background-color: #000 !important;
+  background-color: gray !important;
   background: inherit; }
 
 body {
   font-family: 'Open Sans', sans-serif; }
 
 a:hover {
-  color: #336699;
+  color: orange;
   text-decoration: none; }
   a:hover:hover {
-    color: #336699;
+    color: orange;
     text-decoration: none; }
 
 iframe {
@@ -24,17 +24,17 @@ iframe {
   padding: 0;
   border: 0; }
   .header-social {
-    color: #9da7b2;
-    background-color: #151414;
+    color: #353535;
+    background-color: #4a4a4a;
     font-size: 13px;
     text-align: right;
     height: 29px;
     padding-top: 5px; }
     .header-social a {
-      color: #9da7b2;
+      color: orange;
       margin-left: 5px; }
   .header-main {
-    background-color: #0a0a0a; }
+    background-color: orange; }
     @media screen and (min-width: 587px) {
       .header-main {
         font-size: 18px; } }
@@ -70,20 +70,20 @@ iframe {
         margin-left: 20px; } }
 
 .footer-copy {
-  background-color: #151414;
+  background-color: #4a4a4a;
   font-size: 14px;
   text-align: center;
   height: 40px;
   padding-top: 10px; }
 .footer-main {
-  background-color: #0a0a0a; }
+  background-color: #353535; }
   @media screen and (min-width: 587px) {
     .footer-main {
       font-size: 18px; } }
   .footer-main a {
-    color: #fff; }
+    color: orange; }
     .footer-main a:hover {
-      color: #5288db; }
+      color: white; }
   .footer-main > div {
     display: flex;
     align-items: center; }
@@ -95,7 +95,7 @@ iframe {
         margin-top: 20px;
         justify-content: center; } }
 .footer-contacts {
-  color: #fff;
+  color: orange;
   font-size: 14px;
   flex-direction: column;
   justify-content: center; }
@@ -149,7 +149,7 @@ iframe {
   padding-left: 25px;
   width: 100%;
   font-size: 18px;
-  color: #fff;
+  color: #241724;
   margin-top: 15px;
   margin-bottom: 15px; }
   .block-header > i {
@@ -158,10 +158,10 @@ iframe {
     display: inline;
     font-size: 18px; }
   .block-header.black {
-    background-color: #000; }
+    background-color: gray; }
   .block-header.grey {
     background-color: #e8e8e8;
-    color: #000; }
+    color: gray; }
   .block-header.indigo {
     background-color: #01243b; }
   .block-header.blue {

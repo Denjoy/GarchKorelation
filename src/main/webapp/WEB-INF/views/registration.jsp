@@ -51,7 +51,7 @@
 							<div
 								class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 								<p style="text-align: center;">
-									Come join the Modiphians community!<br />Let's set up your
+									Come join the GarchCorrelation!<br />Let's set up your
 									account. Already have one? <a href="login.html">Sign&nbsp;in&nbsp;here.</a>
 								</p>
 								<form:form class="form-horizontal" method="POST"

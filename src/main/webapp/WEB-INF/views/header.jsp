@@ -41,7 +41,7 @@
 		
 		-->
 		<div class="col col-xs-12 col-sm-8 col-md-9 col-lg-9 header-menu">
-			<a href="wall.html">Ideas</a> <a href="favorites.html">Favourites</a> <a href="#">Forum</a> <a href="#">Store</a> <a href="#">Modiphius</a>
+			<a href="wall.html">Ideas</a> <a href="favorites.html">Favourites</a> <a href="${contextPath}/stock">Stock</a> <a href="#">Store</a> <a href="#">Modiphius</a>
 		</div>
 	</div>
 </div>
