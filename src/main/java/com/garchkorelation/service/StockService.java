@@ -13,10 +13,12 @@ public interface StockService {
 	
 	public List<Stock> getAll();
 	
+	public List<Stock> getByDate(String start, String end);
+	
 	public void saveAll();
 	
 	public List<ChartBean> getChart();
 	
-	public List<ChartBean> getChartByBean();
+	public List<ChartBean> getChartByDate(String start, String end);
 	
 }

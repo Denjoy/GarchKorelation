@@ -8,6 +8,6 @@ public class StaticVar {
 	public static Long MODERATOR_ID = 3L;
 	public static Long UNVERIFIED_ID = 4L;
 	
-	public static String MAIN_XML_URL = "http://investfunds.ua/markets/stocks/Ukrnafta/quotes/?f_s[sdate]=01.05.2017&f_s[edate]=13.06.2017&get_xml";
+	public static String MAIN_XML_URL = "http://investfunds.ua/markets/stocks/Ukrnafta/quotes/?f_s[sdate]=01.05.2016&f_s[edate]=13.06.2017&get_xml";
 	
 }

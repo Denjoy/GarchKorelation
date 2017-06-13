@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +42,13 @@ public class StockRESTController {
 	public List<ChartBean> getChart() {
 		return stockService.getChart();
 	}
+	
+	@RequestMapping(path = { "/getChartByDate" }, method = RequestMethod.GET)
+	@ResponseBody
+	public List<ChartBean> getChartByDate(@RequestParam("start")String start,@RequestParam("end")String end, Model model)  {
+		return stockService.getChartByDate(start, end);
+	}
+	
+	
 
 }

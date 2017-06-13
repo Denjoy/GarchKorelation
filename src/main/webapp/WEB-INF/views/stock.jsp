@@ -30,7 +30,7 @@
 		<div class='col-md-5'>
 			<div class="form-group">
 				<div class='input-group date' id='datetimepicker6'>
-					<input type='text' class="form-control" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+					<input id="start_date" type='text' class="form-control" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
 					</span>
 				</div>
 			</div>
@@ -38,11 +38,12 @@
 		<div class='col-md-5'>
 			<div class="form-group">
 				<div class='input-group date' id='datetimepicker7'>
-					<input type='text' class="form-control" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+					<input id="end_date" type='text' class="form-control" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
 					</span>
 				</div>
 			</div>
 		</div>
+		<button onclick="getByDate()">Get</button>
 	</div>
 
 
@@ -86,6 +87,8 @@
 	</div>
 
 
+
+
 	<div class="footer"></div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
@@ -101,9 +104,17 @@
 		});
 		google.charts.setOnLoadCallback(drawBasic);
 
+		var u = window.location.href;
+
+		var i = u.indexOf("byDate");
+
+		if (i !== -1) {
+			u = 'B' + u.substring(i + 1);
+		}
+
 		function drawBasic() {
 			$.ajax({
-				url : "http://localhost:8080/account/rest/getChart",
+				url : "http://localhost:8080/account/rest/getChart" + u,
 				type : 'get',
 				dataType : "json",
 				success : function(jsonData) {
@@ -117,7 +128,7 @@
 					}
 
 					var options = {
-						title : 'Country Populations',
+						title : 'Azazazazazaza',
 						legend : {
 							position : 'none'
 						},
@@ -167,6 +178,15 @@
 				$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		function getByDate() {
+			var start = $('#start_date').val();
+			var end = $('#end_date').val();
+			window.location.href = 'http://localhost:8080/account/stock/byDate?start='
+					+ start + '&end=' + end;
+		}
 	</script>
 </body>
 </html>

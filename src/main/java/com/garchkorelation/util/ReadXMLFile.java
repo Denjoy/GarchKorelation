@@ -59,9 +59,9 @@ public class ReadXMLFile {
 				}
 			}
 		} catch (NumberFormatException ex) {
-			if(!ex.getMessage().equals("empty String")) {
-				ex.printStackTrace();
-			}
+//			if(!ex.getMessage().equals("empty String")) {
+//				ex.printStackTrace();
+//			}
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
