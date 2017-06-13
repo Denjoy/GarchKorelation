@@ -49,6 +49,7 @@
 
 	<div id="chart" class="chartClass"></div>
 
+	<p>Correlation coef: ${correlation}</p>
 	<div style="background: white;">
 		<table class="table table-striped">
 			<thead>
