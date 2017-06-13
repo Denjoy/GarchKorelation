@@ -9,15 +9,12 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.garchkorelation.model.Stock;
-import com.garchkorelation.repository.StockRepository;
-import com.garchkorelation.service.StockService;
 
 public class ReadXMLFile {
 
@@ -36,7 +33,7 @@ public class ReadXMLFile {
 				Node nNode = nList.item(temp);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					String date = eElement.getAttribute("date");
+					String date = TimeUtil.getFormatedDate(eElement.getAttribute("date"));
 
 					Double lastPrice = 0.0;
 					Double bid = 0.0;
@@ -48,8 +45,11 @@ public class ReadXMLFile {
 					lastPrice = Double.parseDouble(eElement.getAttribute("price").replaceAll(" ", ""));
 					bid = Double.parseDouble(eElement.getAttribute("buy").replaceAll(" ", ""));
 					ask = Double.parseDouble(eElement.getAttribute("sell").replaceAll(" ", ""));
-					minDayPrice = Double.parseDouble(eElement.getAttribute("min_price").replaceAll("-", ""));
-					maxDayPrice = Double.parseDouble(eElement.getAttribute("max_price").replaceAll(" ", ""));
+					if(eElement.getAttribute("min_price").contains("-")) {
+						continue;
+					}
+					minDayPrice = Double.parseDouble(eElement.getAttribute("min_price"));
+					maxDayPrice = Double.parseDouble(eElement.getAttribute("max_price"));
 					avgDayPrice = Double.parseDouble(eElement.getAttribute("average_price").replaceAll(" ", ""));
 					dayTotal = (long) Double.parseDouble(eElement.getAttribute("overturn").replaceAll(" ", ""));
 					String percentDay = eElement.getAttribute("change1");
