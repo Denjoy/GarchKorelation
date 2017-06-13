@@ -21,12 +21,18 @@ public class StockRESTController {
 	@Autowired
 	private StockService stockService;
 
+	@RequestMapping(path = "/refreshDB")
+	@ResponseStatus(value = HttpStatus.OK)
+	public void resfreshDB() {
+		stockService.clearAll();
+		stockService.saveAll();
+	}
+
 	@RequestMapping(path = { "/test" }, method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void test() {
 		System.out.println(Correlation.correlationCoef(stockService.getAll()));
-		// stockService.clearAll();
-		// stockService.saveAll();
+
 	}
 
 	@RequestMapping(path = { "/getChart" }, method = RequestMethod.GET)
