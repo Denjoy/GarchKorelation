@@ -47,5 +47,11 @@ public class StockServiceImpl implements StockService{
 		}
 		return chartList;
 	}
+
+	@Override
+	public List<ChartBean> getChartByBean() {
+//		TODO: JUST DO IT!
+		return null;
+	}
 	
 }

@@ -17,4 +17,6 @@ public interface StockService {
 	
 	public List<ChartBean> getChart();
 	
+	public List<ChartBean> getChartByBean();
+	
 }
