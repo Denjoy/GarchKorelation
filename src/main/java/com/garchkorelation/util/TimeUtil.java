@@ -33,6 +33,21 @@ public class TimeUtil {
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @param date "yyyy-MM-dd"
+	 * @return "dd.MM.yyyy"
+	 */
+	public static String convertDateFormat(String date) {
+		try {
+			return dateFormat.format(userDateFormat.parse(date)).toString();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	/**
 	 * 

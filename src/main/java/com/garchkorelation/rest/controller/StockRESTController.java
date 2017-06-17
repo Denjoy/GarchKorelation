@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.garchkorelation.bean.ChartBean;
 import com.garchkorelation.calc.Correlation;
+import com.garchkorelation.service.StockNameService;
 import com.garchkorelation.service.StockService;
 
 @RestController
@@ -22,21 +23,31 @@ public class StockRESTController {
 
 	@Autowired
 	private StockService stockService;
+	
+	@Autowired
+	private StockNameService stockNameService; 
+	
 
 	@RequestMapping(path = "/refreshDB", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void resfreshDB() {
-		stockService.clearAll();
-		stockService.saveAll();
+//		stockService.clearAll();
+//		stockService.saveAll();
+	}
+	
+	@RequestMapping(path = "/refreshStockNames", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void refreshStockNames() {
+		stockNameService.clearAll();
+		stockNameService.saveAll();
 	}
 
 	@RequestMapping(path = { "/test" }, method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void test() {
 		System.out.println(Correlation.correlationCoef(stockService.getAll()));
-
 	}
-
+ 
 	@RequestMapping(path = { "/getChart" }, method = RequestMethod.GET)
 	@ResponseBody
 	public List<ChartBean> getChart() {

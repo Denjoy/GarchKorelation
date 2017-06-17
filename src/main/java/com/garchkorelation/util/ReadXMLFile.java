@@ -18,13 +18,14 @@ import com.garchkorelation.model.Stock;
 
 public class ReadXMLFile {
 
-	public static List<Stock> load() {
+	public static List<Stock> load(String urlString) {
+		System.out.println("start load xml by url: "+ urlString);
 
 		List<Stock> stockList = new ArrayList<Stock>();
 
 		URL url = null;
 		try {
-			url = new URL(StaticVar.MAIN_XML_URL);
+			url = new URL(urlString);
 			URLConnection connection = url.openConnection();
 			Document doc = parseXML(connection.getInputStream());
 			doc.getDocumentElement().normalize();
@@ -34,6 +35,7 @@ public class ReadXMLFile {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
 					String date = TimeUtil.getFormatedDate(eElement.getAttribute("date"));
+					System.out.println(date);
 
 					Double lastPrice = 0.0;
 					Double bid = 0.0;
@@ -66,6 +68,7 @@ public class ReadXMLFile {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
+		System.out.println("parse XML finished");
 		return stockList;
 	}
 

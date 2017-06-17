@@ -11,6 +11,7 @@ import com.garchkorelation.bean.ChartBean;
 import com.garchkorelation.model.Stock;
 import com.garchkorelation.repository.StockRepository;
 import com.garchkorelation.service.StockService;
+import com.garchkorelation.util.ParseUtil;
 import com.garchkorelation.util.ReadXMLFile;
 import com.garchkorelation.util.TimeUtil;
 
@@ -46,8 +47,8 @@ public class StockServiceImpl implements StockService {
 	}
 
 	@Override
-	public void saveAll() {
-		List<Stock> stockList = ReadXMLFile.load();
+	public void saveAll(String urlString) {
+		List<Stock> stockList = ReadXMLFile.load(urlString);
 		stockList.forEach(stock -> save(stock));
 	}
 
@@ -72,6 +73,13 @@ public class StockServiceImpl implements StockService {
 			chartList.add(new ChartBean(stock.getDate(), stock.getAsk()));
 		}
 		return chartList;
+	}
+
+	@Override
+	public void fillDB(String start, String end, String stockName) {
+		System.out.println("start fill DB");
+		saveAll(ParseUtil.getUrl(start, end, stockName));
+		System.out.println("DONE!!!!");
 	}
 
 }

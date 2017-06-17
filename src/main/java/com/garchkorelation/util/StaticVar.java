@@ -10,4 +10,6 @@ public class StaticVar {
 	
 	public static String MAIN_XML_URL = "http://investfunds.ua/markets/stocks/Ukrnafta/quotes/?f_s[sdate]=01.05.2016&f_s[edate]=13.06.2017&get_xml";
 	
+	public static String STOCK_NAMES_URL = "http://investfunds.ua/markets/stocks/";
+	
 }

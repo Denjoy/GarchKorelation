@@ -43,30 +43,37 @@
 				</div>
 			</div>
 		</div>
+		<select class="selectpicker" id="combobox">
+			<c:forEach items="${stockNameList}" var="stockName">
+				<option value="${stockName.ENName}">${stockName.name}</option>
+			</c:forEach>
+		</select>
+
 		<button onclick="getByDate()">Get</button>
 	</div>
 
 
-	<div id="chart" class="chartClass"></div>
+	<c:if test="${!empty stockList}">
+		<div id="chart" class="chartClass"></div>
 
-	<p>Correlation coef: ${correlation}</p>
-	<div style="background: white;">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Last Price</th>
-					<th>Bid</th>
-					<th>Ask</th>
-					<th>Min day price</th>
-					<th>Max day price</th>
-					<th>Avg day price</th>
-					<th>Total</th>
-					<th>%</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${!empty stockList}">
+		<p>Correlation coef: ${correlation}</p>
+		<div style="background: white;">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Last Price</th>
+						<th>Bid</th>
+						<th>Ask</th>
+						<th>Min day price</th>
+						<th>Max day price</th>
+						<th>Avg day price</th>
+						<th>Total</th>
+						<th>%</th>
+					</tr>
+				</thead>
+				<tbody>
+
 					<c:forEach items="${stockList}" var="stock">
 						<tr>
 							<td>${stock.date}</td>
@@ -80,12 +87,13 @@
 							<td>${stock.percentDay}</td>
 						</tr>
 					</c:forEach>
-				</c:if>
 
-			</tbody>
-		</table>
+				</tbody>
+			</table>
 
-	</div>
+		</div>
+	</c:if>
+
 
 	<div class="footer"></div>
 
@@ -109,7 +117,7 @@
 		if (i !== -1) {
 			u = 'B' + u.substring(i + 1);
 		} else {
-			u="";
+			u = "";
 		}
 
 		function drawBasic() {
@@ -123,7 +131,7 @@
 					data.addColumn('string', 'date');
 					data.addColumn('number', 'value');
 
-					for (var i = jsonData.length-1; i >= 0; --i) {
+					for (var i = jsonData.length - 1; i >= 0; --i) {
 						data.addRow([ jsonData[i].date, jsonData[i].value ]);
 					}
 
@@ -184,8 +192,9 @@
 		function getByDate() {
 			var start = $('#start_date').val();
 			var end = $('#end_date').val();
+			var stockName = $('#combobox').find('option:selected').val();
 			window.location.href = 'http://localhost:8080/account/stock/byDate?start='
-					+ start + '&end=' + end;
+					+ start + '&end=' + end +"&stockName=" + stockName;
 		}
 	</script>
 </body>
