@@ -76,5 +76,19 @@ public class TimeUtil {
 
 		return dateD.after(dateStart) && dateD.before(dateEnd);
 	}
+	
+	public static String plusDay(String date) {
+		String dt = date;  // Start date
+		Calendar c = Calendar.getInstance();
+		try {
+			c.setTime(userDateFormat.parse(dt));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		c.add(Calendar.DATE, 2);  // number of days to add
+		dt = userDateFormat.format(c.getTime());  // dt is now the new date
+		return dt;
+	}
 
 }

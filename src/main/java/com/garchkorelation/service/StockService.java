@@ -21,6 +21,8 @@ public interface StockService {
 	
 	public List<ChartBean> getChartByDate(String start, String end);
 	
+	public List<ChartBean> getChartPrediction(String start, String end, int predictSize);
+	
 	public void fillDB(String start,String end, String stockName);
 	
 }

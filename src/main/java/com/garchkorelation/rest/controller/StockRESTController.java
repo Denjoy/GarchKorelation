@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.garchkorelation.bean.ChartBean;
-import com.garchkorelation.calc.Correlation;
 import com.garchkorelation.service.StockNameService;
 import com.garchkorelation.service.StockService;
 
@@ -23,18 +22,10 @@ public class StockRESTController {
 
 	@Autowired
 	private StockService stockService;
-	
-	@Autowired
-	private StockNameService stockNameService; 
-	
 
-	@RequestMapping(path = "/refreshDB", method = RequestMethod.GET)
-	@ResponseStatus(value = HttpStatus.OK)
-	public void resfreshDB() {
-//		stockService.clearAll();
-//		stockService.saveAll();
-	}
-	
+	@Autowired
+	private StockNameService stockNameService;
+
 	@RequestMapping(path = "/refreshStockNames", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void refreshStockNames() {
@@ -42,23 +33,24 @@ public class StockRESTController {
 		stockNameService.saveAll();
 	}
 
-	@RequestMapping(path = { "/test" }, method = RequestMethod.GET)
-	@ResponseStatus(value = HttpStatus.OK)
-	public void test() {
-		System.out.println(Correlation.correlationCoef(stockService.getAll()));
-	}
- 
 	@RequestMapping(path = { "/getChart" }, method = RequestMethod.GET)
 	@ResponseBody
 	public List<ChartBean> getChart() {
 		return stockService.getChart();
 	}
-	
+
 	@RequestMapping(path = { "/getChartByDate" }, method = RequestMethod.GET)
 	@ResponseBody
-	public List<ChartBean> getChartByDate(@RequestParam("start")String start,@RequestParam("end")String end, Model model)  {
+	public List<ChartBean> getChartByDate(@RequestParam("start") String start, @RequestParam("end") String end, Model model) {
 		return stockService.getChartByDate(start, end);
 	}
+	
+	@RequestMapping(path = { "/getChartPrediction" }, method = RequestMethod.GET)
+	@ResponseBody
+	public List<ChartBean> getChartPrediction(@RequestParam("start") String start, @RequestParam("end") String end, @RequestParam("predictSize") int predictSize, Model model) {
+		return stockService.getChartPrediction(start, end, predictSize);
+	}
+	
 	
 	
 

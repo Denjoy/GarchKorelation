@@ -50,13 +50,15 @@
 		</select>
 
 		<button onclick="getByDate()">Get</button>
+		<input id="predictSize" type='text' class="form-control" />
+		<button onclick="getPrediction()">predict</button>
 	</div>
 
 
 	<c:if test="${!empty stockList}">
 		<div id="chart" class="chartClass"></div>
 
-		<p>Correlation coef: ${correlation}</p>
+	<!-- 	<p>Correlation coef: ${correlation}</p> -->
 		<div style="background: white;">
 			<table class="table table-striped">
 				<thead>
@@ -117,7 +119,12 @@
 		if (i !== -1) {
 			u = 'B' + u.substring(i + 1);
 		} else {
-			u = "";
+			i = u.indexOf("predict");
+			if (i !== -1) {
+				u = 'Prediction' + u.substring(i + 7);
+			} else {
+				u = "";
+			}
 		}
 
 		function drawBasic() {
@@ -194,7 +201,23 @@
 			var end = $('#end_date').val();
 			var stockName = $('#combobox').find('option:selected').val();
 			window.location.href = 'http://localhost:8080/account/stock/byDate?start='
-					+ start + '&end=' + end +"&stockName=" + stockName;
+					+ start + '&end=' + end + "&stockName=" + stockName;
+		}
+	</script>
+
+	<script type="text/javascript">
+		function getPrediction() {
+			var start = $('#start_date').val();
+			var end = $('#end_date').val();
+			var stockName = $('#combobox').find('option:selected').val();
+			var predictSize = $('#predictSize').val();
+			window.location.href = 'http://localhost:8080/account/stock/predict?start='
+					+ start
+					+ '&end='
+					+ end
+					+ "&stockName="
+					+ stockName
+					+ "&predictSize=" + predictSize;
 		}
 	</script>
 </body>

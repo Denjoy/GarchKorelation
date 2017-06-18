@@ -24,8 +24,8 @@
 
 <body class="modiphius-bg">
 	<div class="header"></div>
-	
-	
+
+
 	<div class="container">
 		<div class='col-md-5'>
 			<div class="form-group">
@@ -50,18 +50,21 @@
 		</select>
 
 		<button onclick="getByDate()">Get</button>
+		<input id="predictSize" type='text' class="form-control" />
+		<button onclick="getPrediction()">predict</button>
 	</div>
-		
+
+
 
 	<div class="footer"></div>
-	
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script type='text/javascript' src='${contextPath}/resources/js/script.js?ver=0.1'></script>
-	
+
 	<script type="text/javascript">
 		$(function() {
 			$('#datetimepicker6').datetimepicker({
@@ -87,9 +90,25 @@
 			var end = $('#end_date').val();
 			var stockName = $('#combobox').find('option:selected').val();
 			window.location.href = 'http://localhost:8080/account/stock/byDate?start='
-					+ start + '&end=' + end +"&stockName=" + stockName;
+					+ start + '&end=' + end + "&stockName=" + stockName;
 		}
 	</script>
-	
+
+	<script type="text/javascript">
+		function getPrediction() {
+			var start = $('#start_date').val();
+			var end = $('#end_date').val();
+			var stockName = $('#combobox').find('option:selected').val();
+			var predictSize = $('#predictSize').val();
+			window.location.href = 'http://localhost:8080/account/stock/predict?start='
+					+ start
+					+ '&end='
+					+ end
+					+ "&stockName="
+					+ stockName
+					+ "&predictSize=" + predictSize;
+		}
+	</script>
+
 </body>
 </html>
