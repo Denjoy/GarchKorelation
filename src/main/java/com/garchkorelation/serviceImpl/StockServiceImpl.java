@@ -91,14 +91,14 @@ public class StockServiceImpl implements StockService {
 		List<ChartBean> chartList = new ArrayList<ChartBean>();
 		double[] avgDay = new double[stockList.size()];
 		String[] time = new String[stockList.size()];
-		int i=0;
+		int i=stockList.size()-1;
 		String predictionDate = end;
 		
 		for (Stock stock : stockList) {
 			avgDay[i] = stock.getAvgDayPrice();
 			time[i] = TimeUtil.plusDay(predictionDate);
 			predictionDate = time[i];
-			++i;
+			--i;
 		}
 		double[] avgPredicted = MyArima.getPrediction(avgDay, predictSize);
 		List<ChartBean> predicteChart = new ArrayList<ChartBean>();
