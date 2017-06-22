@@ -11,6 +11,9 @@
 		<intercept-url pattern="/registration/**" access="hasRole('ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/home/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/stock/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/home"
 			authentication-failure-url="/login?error" username-parameter="username"
