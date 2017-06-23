@@ -49,16 +49,20 @@
 			</c:forEach>
 		</select>
 
-		<button onclick="getByDate()">Get</button>
+		<button class="btn" onclick="getByDate()">Get</button>
 		<input id="predictSize" type='text' class="form-control" />
-		<button onclick="getPrediction()">predict</button>
+		<button class="btn" onclick="getPrediction()">predict</button>
 	</div>
 
 
 	<c:if test="${!empty stockList}">
+		<button class="btn" onclick="getImage()">get image</button>
+		<a class="btn" href="${xmlFile}">xml</a>
+		<a class="btn" href="${xlsFile}">xls</a>
+		<a class="btn" href="${csvFile}">csv</a>
 		<div id="chart" class="chartClass"></div>
 
-	<!-- 	<p>Correlation coef: ${correlation}</p> -->
+		<!-- 	<p>Correlation coef: ${correlation}</p> -->
 		<div style="background: white;">
 			<table class="table table-striped">
 				<thead>
@@ -111,6 +115,8 @@
 			packages : [ 'corechart', 'line' ]
 		});
 		google.charts.setOnLoadCallback(drawBasic);
+
+		var chart;
 
 		var u = window.location.href;
 
@@ -165,14 +171,23 @@
 						}
 					};
 
-					var chart = new google.visualization.AreaChart(document
-							.getElementById('chart'));
+					var chart_div = document.getElementById('chart');
+					chart = new google.visualization.AreaChart(chart_div);
+
 					chart.draw(data, options);
 				},
 				error : function() {
 					alert('error!');
 				}
 			});
+		}
+
+		function getImage() {
+			var a = $("<a>").attr("href", chart.getImageURI()).attr("download",
+					"img.png").appendTo("body");
+			a[0].click();
+
+			a.remove();
 		}
 	</script>
 

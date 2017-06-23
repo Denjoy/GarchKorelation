@@ -1,7 +1,9 @@
 package com.garchkorelation.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,9 +34,19 @@ public class ParseUtil {
 		return stockNameList;
 
 	}
-	
+
 	public static String getUrl(String start, String end, String stockName) {
-		return "http://investfunds.ua/markets/stocks/"+stockName +"/quotes/?f_s[sdate]="+TimeUtil.convertDateFormat(start)+"&f_s[edate]="+TimeUtil.convertDateFormat(end)+"&get_xml";
+		return "http://investfunds.ua/markets/stocks/" + stockName + "/quotes/?f_s[sdate]=" + TimeUtil.convertDateFormat(start) + "&f_s[edate]=" + TimeUtil.convertDateFormat(end) + "&get_xml";
+	}
+
+	public static Map<String, String> getFilesUrlModel(String start, String end, String stockName) {
+		Map<String, String> map = new HashMap<String, String>();
+		String url = ParseUtil.getUrl(start, end, stockName);
+		url = url.substring(0, url.lastIndexOf("&") + 1);
+		map.put("xmlFile", url + "get_xml");
+		map.put("xlsFile", url + "get_excel");
+		map.put("csvFile", url + "get_csv");
+		return map;
 	}
 
 }

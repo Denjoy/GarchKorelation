@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.garchkorelation.model.Stock;
 import com.garchkorelation.service.StockNameService;
 import com.garchkorelation.service.StockService;
+import com.garchkorelation.util.ParseUtil;
 
 @Controller
 @RequestMapping("/stock")
@@ -35,6 +36,7 @@ public class StockController {
 		List<Stock> stockList = stockService.getByDate(start, end);
 		model.addAttribute("stockNameList", stockNameService.getAll());
 		model.addAttribute("stockList", stockList);
+		model.addAllAttributes(ParseUtil.getFilesUrlModel(start, end, stockName));
 //		model.addAttribute("correlation", Correlation.correlationCoef(stockList));
 		return "stock";
 	}
@@ -46,6 +48,7 @@ public class StockController {
 		List<Stock> stockList = stockService.getByDate(start, end);
 		model.addAttribute("stockNameList", stockNameService.getAll());
 		model.addAttribute("stockList", stockList);
+		model.addAllAttributes(ParseUtil.getFilesUrlModel(start, end, stockName));
 //		model.addAttribute("correlation", Correlation.correlationCoef(stockList));
 		return "stock";
 	}
